@@ -70,8 +70,9 @@ Finally, we have a relatively simple and pointless TypeScript program. It does
 have **a few interesting things in it that should make changes to the `"target"`
 property in our `tsconfig.json` more obvious**:
 
-- Use of a built in `Promise` constructor (introduced in ES2015)
-- Use of `async` and `await` (introduced in ES2017)
+
+- Use of a built in `Promise` constructor (introduced in ES2015)  ❗️ 
+- Use of `async` and `await` (introduced in ES2017)  ❗️ 
 
 Here is the original (TypeScript) source code that we aim to compile:
 

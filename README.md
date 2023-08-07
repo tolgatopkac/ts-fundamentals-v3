@@ -1,4 +1,5 @@
 # TypeScript Training w/ Mike North
+
 This repo contains the code for `TypeScript Fundamentals v3` and `Intermediate TypeScript v1`
 
 The course website is at https://www.typescript-training.com
@@ -55,6 +56,74 @@ For example
 [opera]: (https://www.opera.com/)
 [googlechrome]: (https://www.google.com/chrome/)
 
-
 # Legal
+
 &copy; 2021, All Rights Reserved - Mike Works, Inc.
+
+# Course Notes
+
+# TypeScript Fundamentals, v3
+
+## Compiling a TypeScript Program
+
+- TSC compiler komutlarının kullanımı :
+- Uzantısı `d.ts` olan dosyalara "declaration file" denir.
+
+package.json # Package manifest
+ts.config.json # TypeScript compiler settings
+src/index.ts # "the program"
+
+```typescript
+{
+  "compilerOptions": {
+    "outDir": "dist", // where to put the TS files
+    "target": "ES3" // which level of JS support to target
+    "module":"CommonJS"
+  },
+  "include": ["src"] // which files to compile
+}
+```
+
+TS Dosyaları
+
+- `.ts` : hem tür bilgisi hem de çalışan kod içerir
+- `.js` : çalışan kodu içerir.
+- `.d.ts` : sadece type bilgisi içerir.
+
+## Variables and Values
+
+In TypeScript, variables are "born" with their types.
+
+```typescript
+// between 500 and 1000
+
+const RANDOM_WAIT_TIME =
+  Math.round(Math.random() * 500) + 500;
+
+let startTime = new Date();
+let endTime;
+
+let endTime: any;
+
+setTimeout(() => {
+  endTime = 0;
+  endTime = new Date();
+}, RANDOM_WAIT_TIME);
+```
+
+- `endTime` is "born" without a type, so it ends up being implict `any`
+
+- TypeScript does'nt have enough information around the declaration site to infer what `endTime` should be, so it gets the most flexible type : any
+
+- Think of `any` as "the normal way JS variables work" in that you could assign `endTime` to `number`, then later a `function`, then a `string`.
+
+Function arguments and return values
+
+```typescript
+function add(a: number, b: number) {
+  return a + b;
+}
+const result = add(3, 4);
+```
+
+## Typing Functions
